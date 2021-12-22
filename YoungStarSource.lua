@@ -543,8 +543,8 @@ function library:CreateWindow(WName)
 	end
 	pcall(function()
 		game:GetService("StarterGui"):SetCore("SendNotification", {
-        	Title = "YoungStars Lib V1",
-        	Text = "Made by YoungStar#0001",
+        	Title = "iCalux Hub",
+        	Text = "Loaded",
         	Duration = 5
    	 	})
 	end)
