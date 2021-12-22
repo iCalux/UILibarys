@@ -1,0 +1,199 @@
+--[[ 
+
+Minecraft F3 Debug Menu Remake
+
+Script by Mars#7383
+
+Guis were serialized using Syntax's Converter
+
+]]--
+
+--[[ Clean up ]]--
+local oldF3 = game:GetService("CoreGui"):FindFirstChild("F3") 
+if oldF3 and oldF3:GetAttribute("Author") == "Mars#7383" then 
+	oldF3:Destroy() 
+end 
+
+--[[ Generate Gui elements ]]--
+
+local function CreateInstance(cls,props)
+	local inst = Instance.new(cls)
+	for i,v in pairs(props) do
+			inst[i] = v
+			if inst["Name"] == "F3" then inst:SetAttribute("Author", "Mars#7383") end
+	end
+	return inst
+end
+local F3 = CreateInstance('ScreenGui',{DisplayOrder=999999,Enabled=false,ResetOnSpawn=true,Name='F3', Parent=game.CoreGui})
+local FPSPing = CreateInstance('TextLabel',{Font=Enum.Font.Ubuntu,FontSize=Enum.FontSize.Size14,Text='60 fps',TextColor3=Color3.new(0.988235, 1, 1),TextScaled=true,TextSize=14,TextStrokeColor3=Color3.new(0, 0, 0),TextStrokeTransparency=1,TextTransparency=0,TextWrapped=true,TextXAlignment=Enum.TextXAlignment.Left,TextYAlignment=Enum.TextYAlignment.Center,Active=false,AnchorPoint=Vector2.new(0, 0),BackgroundColor3=Color3.new(0.239216, 0.243137, 0.25098),BackgroundTransparency=0.30000001192093,BorderColor3=Color3.new(0.105882, 0.164706, 0.207843),BorderSizePixel=0,ClipsDescendants=false,Draggable=false,Position=UDim2.new(0, 0, 0, 30),Rotation=0,Selectable=false,Size=UDim2.new(0, 30, 0, 30),SizeConstraint=Enum.SizeConstraint.RelativeYY,Visible=true,ZIndex=1,Name='FPS/Ping',Parent = F3, AutomaticSize=Enum.AutomaticSize.X})
+local Coordinates = CreateInstance('TextLabel',{Font=Enum.Font.Ubuntu,FontSize=Enum.FontSize.Size14,Text='XYZ: 0 / 0 / 0',TextColor3=Color3.new(0.988235, 1, 1),TextScaled=true,TextSize=14,TextStrokeColor3=Color3.new(0, 0, 0),TextStrokeTransparency=1,TextTransparency=0,TextWrapped=true,TextXAlignment=Enum.TextXAlignment.Left,TextYAlignment=Enum.TextYAlignment.Center,Active=false,AnchorPoint=Vector2.new(0, 0),BackgroundColor3=Color3.new(0.239216, 0.243137, 0.25098),BackgroundTransparency=0.30000001192093,BorderColor3=Color3.new(0.105882, 0.164706, 0.207843),BorderSizePixel=0,ClipsDescendants=false,Draggable=false,Position=UDim2.new(0, 0, 0, 120),Rotation=0,Selectable=false,Size=UDim2.new(0, 30, 0, 30),SizeConstraint=Enum.SizeConstraint.RelativeYY,Visible=true,ZIndex=1,Name='Coordinates', AutomaticSize=Enum.AutomaticSize.X, Parent = F3})
+local Rotation = CreateInstance('TextLabel',{Font=Enum.Font.Ubuntu,FontSize=Enum.FontSize.Size14,Text='Facing: north (towards negative Z) (angle 0)',TextColor3=Color3.new(0.988235, 1, 1),TextScaled=true,TextSize=14,TextStrokeColor3=Color3.new(0, 0, 0),TextStrokeTransparency=1,TextTransparency=0,TextWrapped=true,TextXAlignment=Enum.TextXAlignment.Left,TextYAlignment=Enum.TextYAlignment.Center,Active=false,AnchorPoint=Vector2.new(0, 0),BackgroundColor3=Color3.new(0.239216, 0.243137, 0.25098),BackgroundTransparency=0.30000001192093,BorderColor3=Color3.new(0.105882, 0.164706, 0.207843),BorderSizePixel=0,ClipsDescendants=false,Draggable=false,Position=UDim2.new(0, 0, 0, 150),Rotation=0,Selectable=false,Size=UDim2.new(0, 30, 0, 30),SizeConstraint=Enum.SizeConstraint.RelativeYY,Visible=true,ZIndex=1,Name='Rotation', AutomaticSize=Enum.AutomaticSize.X, Parent = F3})
+local Exploit = CreateInstance('TextLabel',{Font=Enum.Font.Ubuntu,FontSize=Enum.FontSize.Size14,Text='Generic script executor @ script identity 7',TextColor3=Color3.new(0.988235, 1, 1),TextScaled=true,TextSize=14,TextStrokeColor3=Color3.new(0, 0, 0),TextStrokeTransparency=1,TextTransparency=0,TextWrapped=true,TextXAlignment=Enum.TextXAlignment.Left,TextYAlignment=Enum.TextYAlignment.Center,Active=false,AnchorPoint=Vector2.new(0, 0),BackgroundColor3=Color3.new(0.239216, 0.243137, 0.25098),BackgroundTransparency=0.30000001192093,BorderColor3=Color3.new(0.105882, 0.164706, 0.207843),BorderSizePixel=0,ClipsDescendants=false,Draggable=false,Position=UDim2.new(0, 0, 0, 60),Rotation=0,Selectable=false,Size=UDim2.new(0, 30, 0, 30),SizeConstraint=Enum.SizeConstraint.RelativeYY,Visible=true,ZIndex=1,Name='Exploit', RichText = true, AutomaticSize=Enum.AutomaticSize.X, Parent = F3})
+local Light = CreateInstance('TextLabel',{Font=Enum.Font.Ubuntu,FontSize=Enum.FontSize.Size14,Text='Light level: 3',TextColor3=Color3.new(0.988235, 1, 1),TextScaled=true,TextSize=14,TextStrokeColor3=Color3.new(0, 0, 0),TextStrokeTransparency=1,TextTransparency=0,TextWrapped=true,TextXAlignment=Enum.TextXAlignment.Left,TextYAlignment=Enum.TextYAlignment.Center,Active=false,AnchorPoint=Vector2.new(0, 0),BackgroundColor3=Color3.new(0.239216, 0.243137, 0.25098),BackgroundTransparency=0.30000001192093,BorderColor3=Color3.new(0.105882, 0.164706, 0.207843),BorderSizePixel=0,ClipsDescendants=false,Draggable=false,Position=UDim2.new(0, 0, 0, 180),Rotation=0,Selectable=false,Size=UDim2.new(0, 30, 0, 30),SizeConstraint=Enum.SizeConstraint.RelativeYY,Visible=true,ZIndex=1,Name='Light', AutomaticSize=Enum.AutomaticSize.X, Parent = F3})
+local Display = CreateInstance('TextLabel',{Font=Enum.Font.Ubuntu,FontSize=Enum.FontSize.Size14,Text='Window size: 1920x1080',TextColor3=Color3.new(0.988235, 1, 1),TextScaled=true,TextSize=14,TextStrokeColor3=Color3.new(0, 0, 0),TextStrokeTransparency=1,TextTransparency=0,TextWrapped=true,TextXAlignment=Enum.TextXAlignment.Right,TextYAlignment=Enum.TextYAlignment.Center,Active=false,AnchorPoint=Vector2.new(1, 0),BackgroundColor3=Color3.new(0.239216, 0.243137, 0.25098),BackgroundTransparency=0.30000001192093,BorderColor3=Color3.new(0.105882, 0.164706, 0.207843),BorderSizePixel=0,ClipsDescendants=false,Draggable=false,Position=UDim2.new(1, 0, 0, 0),Rotation=0,Selectable=false,Size=UDim2.new(0, 30, 0, 30),SizeConstraint=Enum.SizeConstraint.RelativeYY,Visible=true,ZIndex=1,Name='Display', AutomaticSize=Enum.AutomaticSize.X, Parent = F3})
+local MouseTargetTitle = CreateInstance('TextLabel',{Font=Enum.Font.Ubuntu,FontSize=Enum.FontSize.Size14,Text='Mouse Targetted Part',TextColor3=Color3.new(0.988235, 1, 1),TextScaled=true,TextSize=14,TextStrokeColor3=Color3.new(0, 0, 0),TextStrokeTransparency=1,TextTransparency=0,TextWrapped=true,TextXAlignment=Enum.TextXAlignment.Right,TextYAlignment=Enum.TextYAlignment.Center,Active=false,AnchorPoint=Vector2.new(1, 0),BackgroundColor3=Color3.new(0.239216, 0.243137, 0.25098),BackgroundTransparency=0.30000001192093,BorderColor3=Color3.new(0.239216, 0.243137, 0.25098),BorderSizePixel=3,ClipsDescendants=false,Draggable=false,Position=UDim2.new(1, 0, 0, 60),Rotation=0,Selectable=false,Size=UDim2.new(0, 30, 0, 30),SizeConstraint=Enum.SizeConstraint.RelativeYY,Visible=true,ZIndex=1,Name='MouseTargetTitle', AutomaticSize=Enum.AutomaticSize.X, Parent = F3})
+local MouseTargetClass = CreateInstance('TextLabel',{Font=Enum.Font.Ubuntu,FontSize=Enum.FontSize.Size14,Text='roblox:part',TextColor3=Color3.new(0.988235, 1, 1),TextScaled=true,TextSize=14,TextStrokeColor3=Color3.new(0, 0, 0),TextStrokeTransparency=1,TextTransparency=0,TextWrapped=true,TextXAlignment=Enum.TextXAlignment.Right,TextYAlignment=Enum.TextYAlignment.Center,Active=false,AnchorPoint=Vector2.new(1, 0),BackgroundColor3=Color3.new(0.239216, 0.243137, 0.25098),BackgroundTransparency=0.30000001192093,BorderColor3=Color3.new(0.105882, 0.164706, 0.207843),BorderSizePixel=0,ClipsDescendants=false,Draggable=false,Position=UDim2.new(1, 0, 0, 90),Rotation=0,Selectable=false,Size=UDim2.new(0, 30, 0, 30),SizeConstraint=Enum.SizeConstraint.RelativeYY,Visible=true,ZIndex=1,Name='MouseTargetClass', AutomaticSize=Enum.AutomaticSize.X, Parent = F3})
+local GameInfo = CreateInstance('TextButton',{Font=Enum.Font.Ubuntu,FontSize=Enum.FontSize.Size14,Text='Untitled Game (PlaceID: 0 / JobID: [Click to reveal])',TextColor3=Color3.new(1, 1, 1),TextScaled=true,TextSize=14,TextStrokeColor3=Color3.new(0, 0, 0),TextStrokeTransparency=1,TextTransparency=0,TextWrapped=true,TextXAlignment=Enum.TextXAlignment.Center,TextYAlignment=Enum.TextYAlignment.Center,AutoButtonColor=false,Modal=false,Selected=false,Style=Enum.ButtonStyle.Custom,Active=true,AnchorPoint=Vector2.new(0, 0),BackgroundColor3=Color3.new(0.239216, 0.243137, 0.25098),BackgroundTransparency=0.30000001192093,BorderColor3=Color3.new(0.105882, 0.164706, 0.207843),BorderSizePixel=0,ClipsDescendants=false,Draggable=false,Position=UDim2.new(0, 0, 0, 0),Rotation=0,Selectable=true,Size=UDim2.new(0, 100, 0, 30),SizeConstraint=Enum.SizeConstraint.RelativeXY,Visible=true,ZIndex=1,Name='GameInfo', AutomaticSize=Enum.AutomaticSize.X, Parent = F3})
+local MouseTargetPath = CreateInstance('TextButton',{Font=Enum.Font.Ubuntu,FontSize=Enum.FontSize.Size14,Text='Workspace.Part',TextColor3=Color3.new(1, 1, 1),TextScaled=true,TextSize=14,TextStrokeColor3=Color3.new(0, 0, 0),TextStrokeTransparency=1,TextTransparency=0,TextWrapped=true,TextXAlignment=Enum.TextXAlignment.Center,TextYAlignment=Enum.TextYAlignment.Center,AutoButtonColor=false,Modal=false,Selected=false,Style=Enum.ButtonStyle.Custom,Active=true,AnchorPoint=Vector2.new(1, 0),BackgroundColor3=Color3.new(0.239216, 0.243137, 0.25098),BackgroundTransparency=0.30000001192093,BorderColor3=Color3.new(0.105882, 0.164706, 0.207843),BorderSizePixel=0,ClipsDescendants=false,Draggable=false,Position=UDim2.new(1, 0, 0, 120),Rotation=0,Selectable=true,Size=UDim2.new(0, 100, 0, 30),SizeConstraint=Enum.SizeConstraint.RelativeXY,Visible=true,ZIndex=1,Name='MouseTargetPath', AutomaticSize=Enum.AutomaticSize.X, Parent = F3})
+
+--[[ Begin Script ]]--
+
+game:GetService("StarterGui"):SetCore("SendNotification", {
+	Title = "F3 Debug Menu v1.0.1",
+	Text = "Press F3 or F4 to toggle!",
+	Duration = 10
+})
+
+local Players = game:GetService("Players")
+local UserInputService = game:GetService("UserInputService")
+local RunService = game:GetService("RunService")
+
+local guiObject = F3
+local heartbeatConnection = nil
+
+UserInputService.InputBegan:Connect(function(input)
+	if input.UserInputType == Enum.UserInputType.Keyboard then
+		if input.KeyCode == Enum.KeyCode.F4 or input.KeyCode == Enum.KeyCode.F3 then
+			guiObject.Enabled = not guiObject.Enabled
+			if guiObject.Enabled then
+				-- Connect the heartbeat function which will run every frame
+				heartbeatConnection = RunService.Heartbeat:Connect(onHeartbeat)
+			else
+				-- Disconnect the event to save resources since the gui isnt even on the screen
+				if heartbeatConnection ~= nil then 
+					heartbeatConnection:Disconnect()
+					heartbeatConnection = nil
+				end
+			end
+		end
+	end
+end)
+
+local function truncateToThousandths(x)
+	return x-x%0.001
+end
+local function truncateToTenths(x)
+	return x-x%0.1
+end
+
+-- These elements will be set prior to the heartbeat function since we only need to set them one time
+
+-- Set game info
+local defaultGameInfoText = game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name .. " (PlaceID: " .. game.PlaceId .. " / JobID: "
+guiObject["GameInfo"].Text = defaultGameInfoText .. "[Click to reveal])"
+local jobidtoggle = false
+guiObject["GameInfo"].mouseButton1Click:Connect(function()
+	jobidtoggle = not jobidtoggle
+	if jobidtoggle then
+		guiObject["GameInfo"].Text = defaultGameInfoText .. game.JobId .. ")"
+	else
+		guiObject["GameInfo"].Text = defaultGameInfoText .. "[Click to reveal])"
+	end
+end)
+
+-- Set executor info
+local scriptIdentityMessage = ""
+local scriptIdentityLoggerConnection
+function logIdentity(Message, Type)
+	--msg.Text = "The message was "..Message.." and the type was "..tostring(Type)
+	if Message:match("Current identity is ") then
+		scriptIdentityMessage = " @ script identity " .. Message:sub(#Message, #Message)
+		scriptIdentityLoggerConnection:Disconnect()
+	end
+end
+scriptIdentityLoggerConnection = game:GetService("LogService").MessageOut:Connect(logIdentity)
+printidentity()
+wait(1)
+local exploitName = function()
+	local s,e = pcall(syn_checkcaller)
+	if s then
+		return '"Synapse X"' -- Synapse X
+	end
+	if pcall(getexecutorname) then
+		return '"' .. getexecutorname() .. '"' -- Originally made for ScriptWare but I purposefully left it at that since other exploits can utilize this function too (Electron does!)
+	end
+	if type(SENTINEL_LOADED) ~= nil then
+		return '"Sentinel"' -- Sentinel (idk if this works i cant test)	
+	end
+	if type(is_protosmasher_caller) ~= "nil" then
+		return '"Protosmasher"' -- Protosmasher (idk if this works i cant test)
+	end
+	if type(Sirhurt) ~= "nil" then
+		return '"SirHurt"' -- SirHurt (idk if this works i cant test)
+	end
+	if type(CALAMARI_PLATFORM) ~= "nil" then
+		return '"Calamari"' -- marie if youre still out there somewhere this is for u <3
+	end
+	return "Generic script" -- others
+end
+guiObject["Exploit"].Text = exploitName() .. " executor" .. scriptIdentityMessage
+
+-- The heartbeat function will run after every frame is rendered
+
+local lazyUpdate = true -- debounce for lazy updating elements
+function onHeartbeat(step)
+
+	-- Update coordinates
+	local pos = Players.LocalPlayer.Character.HumanoidRootPart.Position
+	guiObject["Coordinates"].Text = "XYZ: " .. truncateToThousandths(pos.X) .. " / " .. truncateToThousandths(pos.Y) .. " / " .. truncateToThousandths(pos.Z)
+
+	-- Update player rotation
+	local rot = Players.LocalPlayer.Character.HumanoidRootPart.Orientation.Y
+	local humanReadable = ""
+	if rot <= -135 and rot > -180 or rot <= 180 and rot > 135 then
+		humanReadable = "Facing south (towards positive Z) "
+	elseif rot <= -45 and rot > -135 then
+		humanReadable = "Facing east (towards positive X) "
+	elseif rot <= 45 and rot > -45 then
+		humanReadable = "Facing north (towards negative Z) "
+	elseif rot <= 135 and rot > 45 then
+		humanReadable = "Facing west (towards negative X) "
+	end
+	guiObject["Rotation"].Text = humanReadable .. "(angle: " .. truncateToTenths(rot) .. ")"
+
+	-- Update screen resolution
+	local resolution = workspace.CurrentCamera.ViewportSize
+	guiObject["Display"].Text = "Window size: " .. resolution.X .. "x" .. resolution.Y
+
+	-- Update mouse target
+	local mouseTarget = Players.LocalPlayer:GetMouse().Target
+	if mouseTarget == nil then
+		guiObject["MouseTargetTitle"].Size = UDim2.new(0, 0, 0, 0)
+		guiObject["MouseTargetClass"].Size = UDim2.new(0, 0, 0, 0)
+		guiObject["MouseTargetPath"].Size = UDim2.new(0, 0, 0, 0)
+		guiObject["MouseTargetTitle"].Text = " " -- make it empty
+		guiObject["MouseTargetClass"].Text = " " -- make it empty
+		guiObject["MouseTargetPath"].Text = " " -- make it empty
+	else
+		guiObject["MouseTargetTitle"].Size = UDim2.new(0, 30, 0, 30)
+		guiObject["MouseTargetClass"].Size = UDim2.new(0, 30, 0, 30)
+		guiObject["MouseTargetPath"].Size = UDim2.new(0, 30, 0, 30)
+		guiObject["MouseTargetTitle"].Text = "Mouse Targetted Part"
+		guiObject["MouseTargetClass"].Text = "roblox:" .. string.lower(mouseTarget.ClassName)
+		guiObject["MouseTargetPath"].Text = mouseTarget:GetFullName()
+	end
+
+	-- Lazy Update some elements to save resources
+	if lazyUpdate then
+		lazyUpdate = false
+
+		-- Update FPS/Ping
+		local fpsPingString =  math.floor(1 / step) .. " fps at graphics level " .. UserSettings().GameSettings.SavedQualityLevel.Value
+		-- Wrap in pcall so that we can test without exploiting as well
+		local success, response = pcall(function()
+			for _,v in ipairs(game:GetService("CoreGui"):FindFirstChild("DevConsoleMaster"):GetDescendants()) do
+				if v.Name == "AvgPing_ms" then
+					fpsPingString = fpsPingString .. ", " .. v.Text .. " network ping"     
+				end
+			end
+		end)
+		guiObject["FPS/Ping"].Text = fpsPingString
+
+		-- Update light level
+		guiObject["Light"].Text = "Light level: " .. game:GetService("Lighting").Brightness
+
+		wait(1) -- lazy update delay (in seconds)
+		lazyUpdate = true
+	end
+
+end
