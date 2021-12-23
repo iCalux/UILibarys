@@ -542,11 +542,6 @@ function library:CreateWindow(WName)
 		ui:Resize()
 	end
 	pcall(function()
-		game:GetService("StarterGui"):SetCore("SendNotification", {
-        	Title = "iCalux Hub",
-        	Text = "Loaded",
-        	Duration = 5
-   	 	})
 	end)
 	return ui
 end
